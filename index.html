@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfólio de Andreza Soares: controle de prazos, obrigações e certidões em escritório contábil.">
+<meta property="og:title" content="Andreza Soares · Portfólio">
+<meta property="og:description" content="Controle de prazos, obrigações e certidões em escritório contábil.">
+<meta property="og:image" content="img/foto.jpg">
+<link rel="icon" href="img/foto.jpg">
+<title>Andreza Soares</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap">
+<style>
+body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* Layout: clean accounting-office ledger — navy ink on white, quiet rules, status chips */
+:root{
+  --bg:#F5F7FA; --surface:#FFFFFF; --ink:#14243B; --muted:#5A6878; --line:#DFE5EC;
+  --accent:#1F4E79; --accent-soft:#E7EEF6; --amber:#7A5C14; --amber-soft:#F4EEDF; --late:#8E2A2A; --late-soft:#F5E5E5;
+  --panel:#14243B; --panel-fg:#FFFFFF;
+  --f-display:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1622; --surface:#152132; --ink:#E7EDF4; --muted:#9AA9BA; --line:#26354A;
+  --accent:#7FB0E0; --accent-soft:#1A2D45; --amber:#D9B867; --amber-soft:#332A15; --late:#E59A9A; --late-soft:#3A1E21;
+  --panel:#1A2B42; --panel-fg:#FFFFFF; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1622; --surface:#152132; --ink:#E7EDF4; --muted:#9AA9BA; --line:#26354A;
+  --accent:#7FB0E0; --accent-soft:#1A2D45; --amber:#D9B867; --amber-soft:#332A15; --late:#E59A9A; --late-soft:#3A1E21;
+  --panel:#1A2B42; --panel-fg:#FFFFFF; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+.wrap{max-width:860px;margin:0 auto;padding-block:48px 72px;display:flex;flex-direction:column;gap:64px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:clamp(1.4rem,3vw,1.8rem);font-weight:600}
+h3{font-size:1.12rem;font-weight:600}
+p{margin:0}
+.label{font-family:var(--f-mono);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+section{display:flex;flex-direction:column;gap:20px}
+.lede{color:var(--muted);max-width:62ch}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:18px}
+.hero h1{font-size:clamp(2.2rem,6.5vw,3.3rem);font-weight:600;letter-spacing:-.01em}
+.role{font-size:clamp(1.1rem,2.6vw,1.3rem);font-weight:300;max-width:40ch}
+.role b{color:var(--accent);font-weight:700}
+.hero{border-bottom:3px solid var(--accent);padding-bottom:28px}
+.about{color:var(--muted);max-width:62ch}
+.strengths{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.strengths li{font-size:.85rem;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:4px 10px}
+.note{color:var(--muted);font-size:.85em}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:.95rem}
+
+/* signature: deadline rail */
+.rail{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 20px 18px;display:flex;flex-direction:column;gap:14px}
+.track{position:relative;height:56px;margin:4px 6px 0}
+.track .bar{position:absolute;left:0;right:0;top:26px;height:4px;background:var(--line);border-radius:2px}
+.track .fill{position:absolute;left:0;top:26px;height:4px;width:62%;background:var(--accent);border-radius:2px}
+.pt{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;font-family:var(--f-mono);font-size:.72rem;white-space:nowrap}
+.pt i{width:14px;height:14px;border-radius:50%;margin-top:21px;order:2;border:3px solid var(--surface)}
+.pt span{order:1}
+.pt.a{left:0;transform:none;align-items:flex-start} .pt.a i{background:var(--muted)}
+.pt.b{left:62%;color:var(--accent);font-weight:500} .pt.b i{background:var(--accent)}
+.pt.c{left:auto;right:0;transform:none;align-items:flex-end;color:var(--late)} .pt.c i{background:var(--late)}
+.rail p{font-size:.98rem}
+
+/* chips */
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:.72rem;padding:3px 9px;border-radius:999px;max-width:100%;white-space:normal}
+.chip.ok{background:var(--accent-soft);color:var(--accent)}
+.chip.warn{background:var(--amber-soft);color:var(--amber)}
+.chip.late{background:var(--late-soft);color:var(--late)}
+
+/* cases as ledger rows */
+.ledger{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:170px 1fr;gap:6px 24px;padding:20px 0;border-bottom:1px solid var(--line)}
+.row .tag{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.row .body{display:flex;flex-direction:column;gap:8px;min-width:0}
+.row .body p{color:var(--muted)}
+.row .body p b,.row .body li b{color:var(--ink);font-weight:600}
+.row .body ul{margin:0;padding-left:1.3em;list-style-position:outside;display:flex;flex-direction:column;gap:8px;color:var(--muted)}
+.sys{font-family:var(--f-mono);font-size:.8rem;color:var(--ink)}
+@media (max-width:640px){.row{grid-template-columns:1fr}.row .tag{flex-direction:row;flex-wrap:wrap;align-items:center}}
+
+/* experience */
+.exp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.job{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.job p{color:var(--muted);font-size:.97rem}
+@media (max-width:640px){.exp{grid-template-columns:1fr}}
+
+/* systems parts list */
+.parts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.parts div{display:flex;flex-direction:column;gap:8px}
+.parts ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.parts li{font-size:.97rem;border-bottom:1px dashed var(--line);padding-bottom:6px}
+@media (max-width:720px){.parts{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.parts{grid-template-columns:1fr}}
+
+/* education */
+.edu{display:flex;flex-direction:column;gap:10px}
+.edu div{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px}
+.edu span:last-child{color:var(--muted);font-family:var(--f-mono);font-size:.82rem}
+
+/* contact */
+.contact{background:var(--panel);color:var(--panel-fg);border-radius:12px;padding:28px 22px;display:flex;flex-direction:column;gap:18px}
+.contact h2{color:var(--panel-fg)}
+.cline{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.cline code{font-family:var(--f-mono);font-size:1rem;user-select:all;word-break:break-all}
+.cline .k{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.7;min-width:72px}
+button.copy{font:600 .85rem var(--f-body);background:transparent;color:var(--panel-fg);border:1px solid currentColor;border-radius:6px;padding:4px 12px;cursor:pointer;opacity:.85}
+button.copy:hover{opacity:1}
+button.copy:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+a{color:var(--accent)}
+footer{color:var(--muted);font-size:.85rem}
+@media (prefers-reduced-motion:no-preference){.fill{animation:grow .9s ease-out both}@keyframes grow{from{width:0}}}
+.shots{display:grid;grid-template-columns:1.6fr 1fr;gap:18px;align-items:start}
+.shots figure{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.shots img{width:100%;max-width:100%;border-radius:8px;border:1px solid var(--line);display:block}
+.shots figcaption{font-size:.88rem;color:var(--muted)}
+@media (max-width:640px){.shots{grid-template-columns:1fr}}
+.id{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.avatar{width:clamp(84px,16vw,120px);height:clamp(84px,16vw,120px);max-width:100%;border-radius:50%;object-fit:cover;object-position:50% 20%;border:3px solid var(--surface);box-shadow:0 0 0 2px var(--accent)}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="label">Portfólio profissional · Rotina de escritório contábil</span>
+  <div class="id"><img class="avatar" src="img/foto.jpg" alt="Foto de Andreza Soares"><h1>Andreza Soares</h1></div>
+  <p class="role">Controle de prazos, obrigações e certidões em escritório contábil, do cadastro no sistema até a <b>entrega no prazo técnico</b>.</p>
+  <p class="about">Meu foco é qualidade na rotina contábil: configurar o controle, conferir antes de entregar, acompanhar cada responsável e agir antes que um atraso vire multa ou uma pendência impeça a emissão de uma certidão.</p>
+  <ul class="strengths" aria-label="Pontos fortes"><li>Controle de prazos</li><li>Conferência de entregas</li><li>Certidões negativas</li><li>Padronização de processos</li><li>Acompanhamento por departamento</li></ul>
+</header>
+
+<section aria-labelledby="cases">
+  <span class="label">Experiências em destaque</span>
+  <h2 id="cases">O que eu já fiz</h2>
+  <div class="ledger">
+    <div class="row">
+      <div class="tag"><span class="chip ok">configuração</span><span class="sys">Acessórias</span></div>
+      <div class="body"><h3>Montei e acompanhei o controle de obrigações do escritório</h3>
+        <ul>
+          <li><b>Cadastrei e configurei obrigações:</b> data de entrega por mês, departamento e responsável, lembrete automático, antecipação em feriados e fins de semana, competência, se gera multa e quais empresas entregam. Exemplo: contracheque para 69 empresas, todo dia 25, sob o Departamento Pessoal, com lembrete 3 dias antes.</li>
+          <li><b>Acompanhei as entregas por cliente:</b> DAS, PGDAS, DIEF/Sintegra, folha, parcelamentos, renovação de certificado digital e as certidões negativas federal, estadual, municipal, FGTS e trabalhista. Cobrava o responsável antes do prazo legal.</li>
+          <li><b>Estipulei prazos de processos por departamento:</b> Legalização (alvarás e renovações), Societário (alterações de empresa) e Financeiro (onboarding de empresas novas). Levava à coordenação o que estava travado.</li>
+        </ul></div>
+    </div>
+    <div class="row">
+      <div class="tag"><span class="chip ok">monitoramento fiscal</span><span class="sys">Monitor Contábil · Veri</span></div>
+      <div class="body"><h3>Acompanhei a situação fiscal dos clientes</h3>
+        <p>Certidões, pendências e mensagens da caixa postal do e-CAC, para regularizar antes de a pendência impedir a emissão de uma certidão. <b>Acompanhei a migração</b> do Monitor Contábil para o Veri.</p></div>
+    </div>
+    <div class="row">
+      <div class="tag"><span class="chip ok">portal do cliente</span><span class="sys">Onvio</span></div>
+      <div class="body"><h3>Administrei o portal do cliente</h3>
+        <p>Com acesso completo, configurei <b>permissões de usuários</b> e o <b>envio de lembretes em massa</b> para os clientes mandarem documentos no prazo.</p></div>
+    </div>
+    <div class="row">
+      <div class="tag"><span class="chip warn">implantação</span><span class="sys">Omie ERP · Asaas</span></div>
+      <div class="body"><h3>Implantei sistemas de gestão e cobrança em clientes</h3>
+        <p>Mapeei e padronizei processos, conferi os dados antes de liberar o uso e corrigi cadastros duplicados e cobranças mal configuradas antes que gerassem boletos ou relatórios incorretos.</p></div>
+    </div>
+    <div class="row">
+      <div class="tag"><span class="chip ok">apresentação para a equipe</span><span class="sys">Inteligência Artificial</span></div>
+      <div class="body"><h3>Conduzi a reunião interna sobre Inteligência Artificial</h3>
+        <p>Apresentei à equipe do escritório contábil o tema <b>“O Futuro da Inteligência Artificial: Tendências e Perspectivas”</b>, mostrando como a IA pode apoiar a rotina do escritório.</p></div>
+    </div>
+    <div class="row">
+      <div class="tag"><span class="chip warn">material consultivo</span><span class="sys">Google Sheets</span></div>
+      <div class="body"><h3>Estruturei uma planilha comparativa para óticas</h3>
+        <p>Referência de carga tributária entre Simples Nacional e Lucro Presumido por faixa de faturamento, lucro líquido do setor, desafios comuns e boas práticas, para apresentar o valor da contabilidade ao empresário.</p></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="como">
+  <span class="label">Como eu trabalho</span>
+  <h2 id="como">Trabalho pelo prazo técnico, não pelo legal</h2>
+  <div class="rail">
+    <div class="track" aria-hidden="true">
+      <div class="bar"></div><div class="fill"></div>
+      <div class="pt a"><span>início</span><i></i></div>
+      <div class="pt b"><span>prazo técnico</span><i></i></div>
+      <div class="pt c"><span>prazo legal</span><i></i></div>
+    </div>
+    <p>Cada obrigação tem uma meta interna antes da data da lei. Entregar no prazo técnico deixa margem para conferir e corrigir um erro antes que ele vire multa ou retrabalho.</p>
+  </div>
+</section>
+
+<section aria-labelledby="reg">
+  <span class="label">Registros do trabalho</span>
+  <h2 id="reg">Na prática</h2>
+  <div class="shots">
+    <figure><img src="img/cadastro.jpg" alt="Tela de cadastro de obrigação no Acessórias: contracheque com entrega todo dia 25, lembrete 3 dias antes e antecipação para o dia útil anterior, vinculada a 69 empresas" loading="lazy">
+      <figcaption>Obrigação que configurei no Acessórias: entrega todo dia 25, lembrete 3 dias antes, antecipação em dia não útil, 69 empresas vinculadas. Dados de responsáveis ocultados.</figcaption></figure>
+    <figure><img src="img/palestra.jpg" alt="Andreza apresentando O Futuro da Inteligência Artificial: Tendências e Perspectivas para a equipe" loading="lazy">
+      <figcaption>Reunião que conduzi para a equipe: “O Futuro da Inteligência Artificial: Tendências e Perspectivas”.</figcaption></figure>
+  </div>
+</section>
+
+<section aria-labelledby="exp">
+  <span class="label">Trajetória</span>
+  <h2 id="exp">Experiência profissional</h2>
+  <div class="ledger">
+    <div class="row"><div class="tag"><span class="label">Escritório contábil</span></div>
+      <div class="body"><h3>Controle de prazos e suporte (Help Desk N1/N2)</h3>
+      <p>Suporte a clientes e equipe, configuração e acompanhamento de obrigações no Acessórias, monitoramento fiscal e administração do Onvio.</p></div></div>
+    <div class="row"><div class="tag"><span class="label">Matrix Go CRM</span></div>
+      <div class="body"><h3>Supervisora de Atendimento</h3>
+      <p>Acompanhamento de indicadores e da qualidade do atendimento da equipe, feedback e padronização de procedimentos.</p></div></div>
+    <div class="row"><div class="tag"><span class="label">Projetos de implantação</span></div>
+      <div class="body"><h3>Implantação de Sistemas · Omie ERP e Asaas</h3>
+      <p>Mapeamento de processos, parametrização, conferência de dados e treinamento de usuários.</p></div></div>
+  </div>
+</section>
+
+<section aria-labelledby="sys">
+  <span class="label">Ferramentas</span>
+  <h2 id="sys">Ferramentas que já utilizei</h2>
+  <div class="parts">
+    <div><span class="label">Rotina contábil</span><ul>
+      <li>Acessórias</li><li>Monitor Contábil</li><li>Veri</li><li>Onvio</li><li>Sistema Domínio <span class="note">(treinamento)</span></li><li>Sieg</li></ul></div>
+    <div><span class="label">Gestão e atendimento</span><ul>
+      <li>Omie ERP</li><li>Asaas</li><li>Matrix Go CRM</li></ul></div>
+    <div><span class="label">Planilhas e relatórios</span><ul>
+      <li>Excel avançado</li><li>Google Sheets</li><li>Power BI</li></ul></div>
+  </div>
+</section>
+
+<section aria-labelledby="edu">
+  <span class="label">Formação</span>
+  <h2 id="edu">Formação e cursos</h2>
+  <div class="edu">
+    <div><span>Bacharelado em Administração</span><span>completo</span></div>
+    <div><span>Pré-MBA em Inteligência Artificial</span><span>Exame</span></div>
+    <div><span>Líder em Experiência do Cliente</span><span>certificação CRM Matrix</span></div>
+    <div><span>Excel Avançado · Power BI</span><span>Fundação Bradesco</span></div>
+    <div><span>Recrutamento e Seleção</span><span>SEBRAE · 2024</span></div>
+  </div>
+</section>
+
+<section class="contact" aria-labelledby="ct">
+  <h2 id="ct">Vamos conversar</h2>
+  <div class="cline"><span class="k">E-mail</span><code id="em">andrezaadmti@gmail.com</code><button class="copy" data-t="em" type="button">Copiar</button></div>
+  <div class="cline"><span class="k">Telefone</span><code id="ph">(99) 99191-1932</code><button class="copy" data-t="ph" type="button">Copiar</button></div>
+</section>
+
+</div>
+
+<script>
+document.querySelectorAll('button.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.t), txt=el.textContent;
+    function done(){b.textContent='Copiado';setTimeout(function(){b.textContent='Copiar'},1600)}
+    function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selecionado'}
+    try{navigator.clipboard.writeText(txt).then(done,sel)}catch(e){sel()}
+  });
+});
+</script>
+</body>
+</html>
