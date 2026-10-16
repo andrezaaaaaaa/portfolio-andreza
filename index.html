@@ -116,10 +116,15 @@ button.copy:focus-visible,a:focus-visible{outline:2px solid var(--accent);outlin
 a{color:var(--accent)}
 footer{color:var(--muted);font-size:.85rem}
 @media (prefers-reduced-motion:no-preference){.fill{animation:grow .9s ease-out both}@keyframes grow{from{width:0}}}
-.shots{display:grid;grid-template-columns:1.6fr 1fr;gap:18px;align-items:start}
-.shots figure{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
-.shots img{width:100%;max-width:100%;border-radius:8px;border:1px solid var(--line);display:block}
-.shots figcaption{font-size:.88rem;color:var(--muted)}
+.shots{display:grid;grid-template-columns:1.6fr 1fr;gap:22px;align-items:start}
+.shots figure{margin:0;display:flex;flex-direction:column;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px;box-shadow:0 1px 2px rgba(20,36,59,.06),0 10px 28px -12px rgba(20,36,59,.22)}
+.shots .frame{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--bg)}
+.shots .bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--accent-soft);border-bottom:1px solid var(--line);font-size:.75rem;font-weight:600;color:var(--accent);letter-spacing:.04em}
+.shots .bar i{width:9px;height:9px;border-radius:50%;background:var(--line);display:inline-block}
+.shots .bar span{margin-left:8px}
+.shots img{width:100%;max-width:100%;display:block}
+.shots figcaption{font-size:.88rem;color:var(--muted);padding:12px 6px 4px;border-top:0}
+.shots figcaption b{display:block;color:var(--ink);font-weight:600;font-size:.95rem;margin-bottom:2px}
 @media (max-width:640px){.shots{grid-template-columns:1fr}}
 .id{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
 .avatar{width:clamp(84px,16vw,120px);height:clamp(84px,16vw,120px);max-width:100%;border-radius:50%;object-fit:cover;object-position:50% 20%;border:3px solid var(--surface);box-shadow:0 0 0 2px var(--accent)}
@@ -196,10 +201,10 @@ footer{color:var(--muted);font-size:.85rem}
   <span class="label">Registros do trabalho</span>
   <h2 id="reg">Na prática</h2>
   <div class="shots">
-    <figure><img src="img/cadastro.jpg" alt="Tela de cadastro de obrigação no Acessórias: contracheque com entrega todo dia 25, lembrete 3 dias antes e antecipação para o dia útil anterior, vinculada a 69 empresas" loading="lazy">
-      <figcaption>Obrigação que configurei no Acessórias: entrega todo dia 25, lembrete 3 dias antes, antecipação em dia não útil, 69 empresas vinculadas. Dados de responsáveis ocultados.</figcaption></figure>
-    <figure><img src="img/palestra.jpg" alt="Andreza apresentando O Futuro da Inteligência Artificial: Tendências e Perspectivas para a equipe" loading="lazy">
-      <figcaption>Reunião que conduzi para a equipe: “O Futuro da Inteligência Artificial: Tendências e Perspectivas”.</figcaption></figure>
+    <figure><div class="frame"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>Acessórias · Cadastro de obrigação</span></div><img src="img/cadastro.jpg" alt="Tela de cadastro de obrigação no Acessórias: contracheque com entrega todo dia 25, lembrete 3 dias antes e antecipação para o dia útil anterior, vinculada a 69 empresas" loading="lazy"></div>
+      <figcaption><b>Configuração de obrigação</b>Obrigação que configurei no Acessórias: entrega todo dia 25, lembrete 3 dias antes, antecipação em dia não útil, 69 empresas vinculadas. Dados de responsáveis ocultados.</figcaption></figure>
+    <figure><div class="frame"><img src="img/palestra.jpg" alt="Andreza apresentando O Futuro da Inteligência Artificial: Tendências e Perspectivas para a equipe" loading="lazy"></div>
+      <figcaption><b>Reunião sobre IA</b>Reunião que conduzi para a equipe: “O Futuro da Inteligência Artificial: Tendências e Perspectivas”.</figcaption></figure>
   </div>
 </section>
 
